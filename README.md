@@ -8,15 +8,14 @@ The code provided is a Python script that uses various libraries and APIs to fet
 
 Here's a breakdown of what the code does:
 
-Imports necessary libraries, including googleapiclient for interacting with the YouTube API, pymongo for working with MongoDB, psycopg2 for connecting to a PostgreSQL database, re for RegEx operations and streamlit for creating the user interface.
+Imports necessary libraries, including googleapiclient for interacting with the YouTube API, pymongo for working with MongoDB, SQLite3 for connecting to a SQLite3 database and streamlit for creating the user interface.
 Connects to MongoDB using the provided connection string and sets the database to "youtube_data".
 Sets the YouTube API key for making requests to the YouTube API.
-Connects to a PostgreSQL database using the provided credentials.
-Defines a function parse_duration to convert the duration of a video from the YouTube API response format to seconds.
+Connects to a SQLite3 database using the provided credentials.
 Defines a function get_channel_data that takes a YouTube API client and a channel ID as inputs. This function retrieves channel details, video details, and comments for a given channel ID.
 Defines a function migrate_data_to_mongodb that takes a channel ID as input and migrates the channel data to MongoDB. It uses the get_channel_data function to retrieve the data and inserts or updates the data in the "migrated_channels" collection.
-Defines a function migrate_data_to_sql that takes a channel ID as input and migrates the channel data from MongoDB to a PostgreSQL database. It retrieves the channel data from MongoDB, checks if the data already exists in PostgreSQL, deletes the existing data if necessary, and inserts the new data into the appropriate tables.
-Defines a Streamlit application function main that sets up the user interface using Streamlit. It includes sections for fetching data from YouTube and migrating the data to MongoDB and PostgreSQL.
-The main function uses Streamlit components to create input fields, buttons, and dropdowns for user interaction. It calls the get_channel_data function to fetch channel data from YouTube and displays it as JSON. It also calls the migrate_data_to_mongodb and migrate_data_to_sql functions when the corresponding buttons are clicked, using the selected channel IDs from the dropdowns.
+Defines a function migrate_data_to_sql that takes a channel ID as input and migrates the channel data from MongoDB to a SQLite3 database. It retrieves the channel data from MongoDB, checks if the data already exists in SQLite3, deletes the existing data if necessary, and inserts the new data into the appropriate tables.
+Defines a Streamlit application function main that sets up the user interface using Streamlit. It includes sections for fetching data from YouTube and migrating the data to MongoDB and SQLite3.
+The main function uses Streamlit components to create input fields, buttons, and dropdowns for user interaction. It calls the get_channel_data function to fetch channel data from YouTube It also calls the migrate_data_to_mongodb and migrate_data_to_sql functions when the corresponding buttons are clicked, using the selected channel IDs from the dropdowns.
 The script sets the Streamlit page layout, sets the Streamlit app title, and calls the main function to run the application.
-Overall, this script provides a way to fetch YouTube channel data, store it in MongoDB, and migrate it to a PostgreSQL database using a 
+Overall, this script provides a way to fetch YouTube channel data, store it in MongoDB, and migrate it to a SQLite3 database using a 
